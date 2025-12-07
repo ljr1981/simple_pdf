@@ -18,7 +18,46 @@ PDF generation library for Eiffel with multi-engine support. Convert HTML, files
 
 All Windows binaries are bundled - no separate installation required.
 
-## Installation
+## API Integration
+
+`simple_pdf` is part of the `simple_*` API hierarchy:
+
+```
+FOUNDATION_API (core utilities: json, uuid, base64, validation, etc.)
+       ↑
+SERVICE_API (services: jwt, smtp, sql, cors, cache, websocket, pdf)
+       ↑
+APP_API (full application stack)
+```
+
+### Using via SERVICE_API or APP_API
+
+If your project uses `simple_service_api` or `simple_app_api`, you automatically have access to `simple_pdf` - no additional ECF entry needed:
+
+```eiffel
+class MY_WEB_SERVICE
+
+inherit
+    SERVICE_API  -- or APP_API
+
+feature
+    generate_report
+        local
+            pdf: SIMPLE_PDF
+            doc: SIMPLE_PDF_DOCUMENT
+        do
+            create pdf.make
+            doc := pdf.from_html (build_report_html)
+            if doc.is_valid then
+                doc.save_to_file ("report.pdf")
+            end
+        end
+end
+```
+
+### Standalone Installation
+
+For projects that only need PDF functionality:
 
 1. Clone the repository
 2. Set environment variable: `SIMPLE_PDF=D:\path\to\simple_pdf`

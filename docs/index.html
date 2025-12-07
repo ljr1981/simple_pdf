@@ -24,6 +24,7 @@
     <nav>
         <ul>
             <li><a href="#overview">Overview</a></li>
+            <li><a href="#api-integration">API Integration</a></li>
             <li><a href="#quick-start">Quick Start</a></li>
             <li><a href="#features">Features</a></li>
             <li><a href="#api">API Reference</a></li>
@@ -43,6 +44,42 @@
                 All Windows binaries are bundled - no separate installation required. Choose between
                 wkhtmltopdf (default, bundled) or Chrome/Edge (best CSS support) for rendering.
             </p>
+        </section>
+
+        <section id="api-integration">
+            <h2>API Integration</h2>
+            <p><strong>simple_pdf</strong> is part of the <code>simple_*</code> API hierarchy:</p>
+            <pre><code>FOUNDATION_API (core utilities: json, uuid, base64, validation, etc.)
+       ↑
+SERVICE_API (services: jwt, smtp, sql, cors, cache, websocket, pdf)
+       ↑
+APP_API (full application stack)</code></pre>
+
+            <h3>Using via SERVICE_API or APP_API</h3>
+            <p>If your project uses <code>simple_service_api</code> or <code>simple_app_api</code>,
+               you automatically have access to <code>simple_pdf</code> - no additional ECF entry needed:</p>
+            <pre><code>class MY_WEB_SERVICE
+
+inherit
+    SERVICE_API  -- or APP_API
+
+feature
+    generate_report
+        local
+            pdf: SIMPLE_PDF
+            doc: SIMPLE_PDF_DOCUMENT
+        do
+            create pdf.make
+            doc := pdf.from_html (build_report_html)
+            if doc.is_valid then
+                doc.save_to_file ("report.pdf")
+            end
+        end
+end</code></pre>
+
+            <h3>Standalone Installation</h3>
+            <p>For projects that only need PDF functionality:</p>
+            <pre><code>&lt;library name="simple_pdf" location="$SIMPLE_PDF\simple_pdf.ecf"/&gt;</code></pre>
         </section>
 
         <section id="quick-start">
