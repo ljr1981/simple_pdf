@@ -322,16 +322,35 @@ SIMPLE_PDF_ENGINES (availability reporter)
 
 ## Bundled Binaries
 
-The `bin/` folder contains Windows executables:
+The `bin/` folder contains Windows executables (total ~142MB):
 
-| Binary | Size | Purpose |
-|--------|------|---------|
-| wkhtmltopdf.exe | ~40MB | PDF generation |
-| wkhtmltox.dll | ~80MB | wkhtmltopdf library |
-| pdftotext.exe | ~1MB | Text extraction |
-| Poppler DLLs | ~22MB | pdftotext dependencies |
+| Binary | Version | Size | Purpose |
+|--------|---------|------|---------|
+| wkhtmltopdf.exe | 0.12.6 | ~40MB | PDF generation |
+| wkhtmltox.dll | 0.12.6 | ~40MB | wkhtmltopdf library |
+| pdftotext.exe | 24.08.0 | ~57KB | Text extraction |
+| Poppler DLLs | 24.08.0 | ~22MB | pdftotext dependencies |
 
-Total: ~142MB
+### Binary Sources
+
+| Component | Source | License | Download |
+|-----------|--------|---------|----------|
+| wkhtmltopdf | [wkhtmltopdf.org](https://wkhtmltopdf.org/) | LGPL v3 | [GitHub Releases](https://github.com/wkhtmltopdf/packaging/releases) |
+| Poppler (pdftotext) | [freedesktop.org](https://poppler.freedesktop.org/) | GPL v2+ | [poppler-windows](https://github.com/oschwartz10612/poppler-windows/releases) |
+
+### Updating Binaries
+
+**wkhtmltopdf:**
+1. Download latest from [wkhtmltopdf releases](https://github.com/wkhtmltopdf/packaging/releases)
+2. Extract `wkhtmltopdf.exe`, `wkhtmltox.dll`, `wkhtmltoimage.exe`
+3. Replace files in `bin/`
+
+**Poppler (pdftotext):**
+1. Download latest from [poppler-windows releases](https://github.com/oschwartz10612/poppler-windows/releases)
+2. Extract the `Library/bin/` contents
+3. Replace `pdftotext.exe` and DLLs in `bin/`
+
+**Note:** wkhtmltopdf 0.12.6 (2020) is the final release. The project is no longer actively maintained but remains stable and widely used.
 
 ## API Summary
 

@@ -282,12 +282,38 @@ SIMPLE_PDF_ENGINES (availability reporter)</code></pre>
 
             <h3>Bundled Binaries</h3>
             <table>
-                <tr><th>Binary</th><th>Size</th><th>Purpose</th></tr>
-                <tr><td>wkhtmltopdf.exe</td><td>~40MB</td><td>PDF generation</td></tr>
-                <tr><td>wkhtmltox.dll</td><td>~80MB</td><td>wkhtmltopdf library</td></tr>
-                <tr><td>pdftotext.exe</td><td>~1MB</td><td>Text extraction</td></tr>
-                <tr><td>Poppler DLLs</td><td>~22MB</td><td>pdftotext dependencies</td></tr>
+                <tr><th>Binary</th><th>Version</th><th>Size</th><th>Purpose</th></tr>
+                <tr><td>wkhtmltopdf.exe</td><td>0.12.6</td><td>~40MB</td><td>PDF generation</td></tr>
+                <tr><td>wkhtmltox.dll</td><td>0.12.6</td><td>~40MB</td><td>wkhtmltopdf library</td></tr>
+                <tr><td>pdftotext.exe</td><td>24.08.0</td><td>~57KB</td><td>Text extraction</td></tr>
+                <tr><td>Poppler DLLs</td><td>24.08.0</td><td>~22MB</td><td>pdftotext dependencies</td></tr>
             </table>
+
+            <h3>Binary Sources</h3>
+            <table>
+                <tr><th>Component</th><th>Source</th><th>License</th><th>Download</th></tr>
+                <tr>
+                    <td>wkhtmltopdf</td>
+                    <td><a href="https://wkhtmltopdf.org/">wkhtmltopdf.org</a></td>
+                    <td>LGPL v3</td>
+                    <td><a href="https://github.com/wkhtmltopdf/packaging/releases">GitHub Releases</a></td>
+                </tr>
+                <tr>
+                    <td>Poppler (pdftotext)</td>
+                    <td><a href="https://poppler.freedesktop.org/">freedesktop.org</a></td>
+                    <td>GPL v2+</td>
+                    <td><a href="https://github.com/oschwartz10612/poppler-windows/releases">poppler-windows</a></td>
+                </tr>
+            </table>
+
+            <h3>Updating Binaries</h3>
+            <p><strong>wkhtmltopdf:</strong> Download from
+               <a href="https://github.com/wkhtmltopdf/packaging/releases">GitHub releases</a>,
+               extract and replace <code>wkhtmltopdf.exe</code>, <code>wkhtmltox.dll</code> in <code>bin/</code>.</p>
+            <p><strong>Poppler:</strong> Download from
+               <a href="https://github.com/oschwartz10612/poppler-windows/releases">poppler-windows</a>,
+               extract <code>Library/bin/</code> contents to <code>bin/</code>.</p>
+            <p><em>Note: wkhtmltopdf 0.12.6 (2020) is the final release. No longer actively maintained but stable and widely used.</em></p>
         </section>
     </main>
 
