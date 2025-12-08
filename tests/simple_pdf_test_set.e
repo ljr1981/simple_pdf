@@ -3,7 +3,7 @@ note
 	author: "Your Organization"
 	date: "$Date$"
 	revision: "$Revision$"
-	testing: "type/manual"
+	testing: "covers"
 
 class
 	SIMPLE_PDF_TEST_SET
