@@ -158,43 +158,28 @@ feature {NONE} -- Implementation
 	execute_chrome (a_args: LIST [STRING]): STRING
 			-- Execute Chrome with given arguments, return output
 		local
-			l_process: PROCESS
-			l_factory: PROCESS_FACTORY
-			l_buffer: SPECIAL [NATURAL_8]
-			l_args: ARRAY [STRING]
-			i: INTEGER
+			l_proc: SIMPLE_PROCESS
+			l_cmd: STRING
 		do
 			create Result.make_empty
 
 			if attached executable_path as l_exe then
-				-- Convert list to array
-				create l_args.make_filled ("", 1, a_args.count)
-				i := 1
+				-- Build command string with quoted arguments
+				create l_cmd.make_from_string ("%"" + l_exe + "%"")
 				from a_args.start until a_args.after loop
-					l_args [i] := a_args.item
-					i := i + 1
+					l_cmd.append (" %"" + a_args.item + "%"")
 					a_args.forth
 				end
 
-				create l_factory
-				l_process := l_factory.process_launcher (l_exe, l_args, Void)
-				l_process.set_hidden (True)
-				l_process.redirect_output_to_stream
-				l_process.redirect_error_to_same_as_output
-				l_process.launch
+				create l_proc.make
+				l_proc.execute (l_cmd)
 
-				if l_process.launched then
-					create l_buffer.make_filled (0, 4096)
-					from
-					until
-						l_process.has_output_stream_closed
-					loop
-						l_process.read_output_to_special (l_buffer)
-					end
-					l_process.wait_for_exit
-					create Result.make_from_c_substring ($l_buffer, 1, l_buffer.count)
+				if attached l_proc.last_output as l_out then
+					Result := l_out.to_string_8
+				elseif attached l_proc.last_error as l_err then
+					Result := "Error: " + l_err.to_string_8
 				else
-					Result := "Failed to launch Chrome"
+					Result := "Failed to execute Chrome"
 				end
 			end
 		end

@@ -13,13 +13,14 @@
 		<setting name="console_application" value="true"/>
 		<setting name="dead_code_removal" value="feature"/>
 		<capability>
-			<concurrency support="thread" use="thread"/>
+			<concurrency support="scoop" use="thread"/>
+			<void_safety support="all"/>
 		</capability>
 		<variable name="SIMPLE_PDF" value="D:\prod\simple_pdf"/>
 		<!-- Core libraries -->
 		<library name="base" location="$ISE_LIBRARY\library\base\base.ecf"/>
 		<library name="encoding" location="$ISE_LIBRARY\library\encoding\encoding.ecf"/>
-		<library name="process" location="$ISE_LIBRARY\library\process\process.ecf"/>
+		<library name="simple_process" location="$SIMPLE_PROCESS\simple_process.ecf"/>
 		<library name="uuid" location="$ISE_LIBRARY\library\uuid\uuid.ecf"/>
 		<!-- simple_* dependencies -->
 		<library name="simple_base64" location="$SIMPLE_BASE64\simple_base64.ecf"/>
