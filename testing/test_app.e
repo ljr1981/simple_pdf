@@ -5,7 +5,7 @@ note
 	revision: "$Revision$"
 
 class
-	SIMPLE_PDF_TEST_APP
+	TEST_APP
 
 create
 	make
@@ -15,7 +15,7 @@ feature {NONE} -- Initialization
 	make
 			-- Run tests
 		local
-			l_tests: SIMPLE_PDF_TEST_SET
+			l_tests: LIB_TESTS
 		do
 			print ("=== Simple PDF Tests ===%N%N")
 
