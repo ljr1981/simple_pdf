@@ -74,14 +74,14 @@ feature -- Extraction
 			is_available: is_available
 		local
 			l_temp_txt: STRING
-			l_uuid: UUID_GENERATOR
+			l_uuid: SIMPLE_UUID
 			l_args: ARRAYED_LIST [STRING]
 			l_output: STRING
 			l_file: PLAIN_TEXT_FILE
 			l_raw: RAW_FILE
 		do
-			create l_uuid
-			l_temp_txt := get_temp_directory + "/simple_pdf_" + l_uuid.generate_uuid.out + ".txt"
+			create l_uuid.make
+			l_temp_txt := get_temp_directory + "/simple_pdf_" + l_uuid.new_v4_string + ".txt"
 
 			create l_args.make (10)
 			l_args.extend ("-layout")
@@ -112,14 +112,14 @@ feature -- Extraction
 			is_available: is_available
 		local
 			l_temp_txt: STRING
-			l_uuid: UUID_GENERATOR
+			l_uuid: SIMPLE_UUID
 			l_args: ARRAYED_LIST [STRING]
 			l_output: STRING
 			l_file: PLAIN_TEXT_FILE
 			l_raw: RAW_FILE
 		do
-			create l_uuid
-			l_temp_txt := get_temp_directory + "/simple_pdf_" + l_uuid.generate_uuid.out + ".txt"
+			create l_uuid.make
+			l_temp_txt := get_temp_directory + "/simple_pdf_" + l_uuid.new_v4_string + ".txt"
 
 			create l_args.make (10)
 			l_args.extend ("-raw")
@@ -151,14 +151,14 @@ feature -- Extraction
 			is_available: is_available
 		local
 			l_temp_txt: STRING
-			l_uuid: UUID_GENERATOR
+			l_uuid: SIMPLE_UUID
 			l_args: ARRAYED_LIST [STRING]
 			l_output: STRING
 			l_file: PLAIN_TEXT_FILE
 			l_raw: RAW_FILE
 		do
-			create l_uuid
-			l_temp_txt := get_temp_directory + "/simple_pdf_" + l_uuid.generate_uuid.out + ".txt"
+			create l_uuid.make
+			l_temp_txt := get_temp_directory + "/simple_pdf_" + l_uuid.new_v4_string + ".txt"
 
 			create l_args.make (10)
 			l_args.extend ("-f")
@@ -194,14 +194,14 @@ feature -- Extraction
 			is_available: is_available
 		local
 			l_temp_txt: STRING
-			l_uuid: UUID_GENERATOR
+			l_uuid: SIMPLE_UUID
 			l_args: ARRAYED_LIST [STRING]
 			l_output: STRING
 			l_file: PLAIN_TEXT_FILE
 			l_raw: RAW_FILE
 		do
-			create l_uuid
-			l_temp_txt := get_temp_directory + "/simple_pdf_" + l_uuid.generate_uuid.out + ".txt"
+			create l_uuid.make
+			l_temp_txt := get_temp_directory + "/simple_pdf_" + l_uuid.new_v4_string + ".txt"
 
 			create l_args.make (10)
 			l_args.extend ("-f")

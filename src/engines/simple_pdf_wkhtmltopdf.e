@@ -60,11 +60,11 @@ feature -- Conversion
 			l_temp_html: STRING
 			l_temp_pdf: STRING
 			l_file: PLAIN_TEXT_FILE
-			l_uuid: UUID_GENERATOR
+			l_uuid: SIMPLE_UUID
 		do
-			create l_uuid
-			l_temp_html := temp_directory + "/simple_pdf_" + l_uuid.generate_uuid.out + ".html"
-			l_temp_pdf := temp_directory + "/simple_pdf_" + l_uuid.generate_uuid.out + ".pdf"
+			create l_uuid.make
+			l_temp_html := temp_directory + "/simple_pdf_" + l_uuid.new_v4_string + ".html"
+			l_temp_pdf := temp_directory + "/simple_pdf_" + l_uuid.new_v4_string + ".pdf"
 
 			-- Write HTML to temp file
 			create l_file.make_create_read_write (l_temp_html)
@@ -85,12 +85,12 @@ feature -- Conversion
 			-- Convert HTML file to PDF
 		local
 			l_temp_pdf: STRING
-			l_uuid: UUID_GENERATOR
+			l_uuid: SIMPLE_UUID
 			l_args: ARRAYED_LIST [STRING]
 			l_output: STRING
 		do
-			create l_uuid
-			l_temp_pdf := temp_directory + "/simple_pdf_" + l_uuid.generate_uuid.out + ".pdf"
+			create l_uuid.make
+			l_temp_pdf := temp_directory + "/simple_pdf_" + l_uuid.new_v4_string + ".pdf"
 
 			create l_args.make (20)
 			add_settings_args (l_args)
@@ -112,12 +112,12 @@ feature -- Conversion
 			-- Convert URL to PDF
 		local
 			l_temp_pdf: STRING
-			l_uuid: UUID_GENERATOR
+			l_uuid: SIMPLE_UUID
 			l_args: ARRAYED_LIST [STRING]
 			l_output: STRING
 		do
-			create l_uuid
-			l_temp_pdf := temp_directory + "/simple_pdf_" + l_uuid.generate_uuid.out + ".pdf"
+			create l_uuid.make
+			l_temp_pdf := temp_directory + "/simple_pdf_" + l_uuid.new_v4_string + ".pdf"
 
 			create l_args.make (20)
 			add_settings_args (l_args)
