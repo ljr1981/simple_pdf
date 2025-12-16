@@ -23,7 +23,7 @@
 		<library name="simple_process" location="$SIMPLE_EIFFEL/simple_process/simple_process.ecf"/>
 		<library name="simple_uuid" location="$SIMPLE_EIFFEL/simple_uuid/simple_uuid.ecf"/>
 		<!-- simple_* dependencies -->
-		<library name="simple_base64" location="$SIMPLE_BASE64\simple_base64.ecf"/>
+		<library name="simple_base64" location="$SIMPLE_EIFFEL/simple_base64/simple_base64.ecf"/>
 		<!-- Source clusters -->
 		<cluster name="core" location=".\src\core\" recursive="true"/>
 		<cluster name="engines" location=".\src\engines\" recursive="true"/>
