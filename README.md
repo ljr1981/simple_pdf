@@ -16,7 +16,34 @@ PDF generation library for Eiffel with multi-engine support. Convert HTML, files
 - **Chrome/Edge** - Headless browser, best CSS support
 - **pdftotext** - Text extraction from existing PDFs (Poppler)
 
-All Windows binaries are bundled - no separate installation required.
+Windows binaries are bundled. Linux and macOS automatically detect system-installed tools.
+
+## Cross-Platform Support
+
+`simple_pdf` automatically detects PDF tools based on your platform:
+
+| Platform | Tool Detection |
+|----------|----------------|
+| **Windows** | Bundled in `bin/` folder, or Program Files |
+| **Linux** | `/usr/bin/`, `/usr/local/bin/`, snap |
+| **macOS** | Homebrew (`/opt/homebrew/`, `/usr/local/`), Applications |
+
+### Linux/macOS Installation
+
+Install the required tools via your package manager:
+
+**Ubuntu/Debian:**
+```bash
+sudo apt install wkhtmltopdf poppler-utils
+# Chrome/Chromium optional but recommended for best CSS support
+```
+
+**macOS (Homebrew):**
+```bash
+brew install wkhtmltopdf poppler
+```
+
+The library automatically searches common installation paths - no configuration needed.
 
 ## API Integration
 
