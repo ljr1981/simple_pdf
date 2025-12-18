@@ -16,7 +16,7 @@
 			<concurrency support="scoop" use="thread"/>
 			<void_safety support="all"/>
 		</capability>
-		<variable name="SIMPLE_PDF" value="D:\prod\simple_pdf"/>
+		<variable name="SIMPLE_PDF" value="$SIMPLE_EIFFEL/simple_pdf"/>
 		<!-- Core libraries -->
 		<library name="base" location="$ISE_LIBRARY\library\base\base.ecf"/>
 		<library name="encoding" location="$ISE_LIBRARY\library\encoding\encoding.ecf"/>
